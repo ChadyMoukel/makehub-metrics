@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "makehub-metrics"
+version = "0.1.0"
+description = "A tool for analyzing and verifying MakeHub metrics across different Azure regions"
+authors = ["Chady Moukel"]
+readme = "README.md"
+packages = [
+    {include = "makehub_metrics", from = "src"}
+]
+license = "MIT"
+repository = "https://github.com/ChadyMoukel/makehub-metrics"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"  # Explicit version range for better compatibility
+httpx = "^0.28.1"
+python-dotenv = "^1.1.0"
+openai = "^1.77.0"
+tiktoken = "^0.9.0"
+pandas = "^2.2.0"
+numpy = "^2.2.0"
+matplotlib = "^3.10.0"
+seaborn = "^0.13.0"
+scikit-learn = "^1.6.0"
+scipy = "^1.15.0"
+tqdm = "^4.67.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+makehub-verify = "makehub_metrics.verification:main"
+makehub-analyze = "makehub_metrics.analysis:main"
+makehub-tokens = "makehub_metrics.token_count:main" 
